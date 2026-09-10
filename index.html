@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NBA Trivia Challenge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="shell">
+
+  <header class="scoreboard-header">
+    <h1 class="brand">NBA Trivia Challenge</h1>
+    <div class="score-chip" id="score-chip" hidden>
+      <span class="score-chip-label">Score</span>
+      <span class="score-chip-value" id="score-chip-value">0</span>
+    </div>
+  </header>
+
+  <!-- START SCREEN -->
+  <section id="start-screen" class="panel">
+    <p class="panel-kicker">Before tip-off</p>
+    <h2 class="panel-title">What's your name?</h2>
+    <input type="text" id="player-name-input" class="text-input" placeholder="Type your name" autocomplete="off">
+    <p class="hint-copy">Answer each question, ask for a hint if you're stuck (worth half credit), or skip and move on.</p>
+    <button id="start-btn" class="btn btn-primary">Start the quiz</button>
+    <p class="load-error" id="load-error" hidden></p>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section id="quiz-screen" class="panel" hidden>
+    <div class="progress-row">
+      <span id="progress-label">Question 1 of 10</span>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <p class="question-text" id="question-text">Loading question…</p>
+
+    <div class="answer-area">
+      <input type="text" id="answer-input" class="text-input" placeholder="Type a player's name" autocomplete="off">
+      <ul class="suggestions" id="suggestions" hidden></ul>
+    </div>
+
+    <p class="feedback" id="feedback"></p>
+    <p class="hint-text" id="hint-text" hidden></p>
+
+    <div class="btn-row">
+      <button id="submit-btn" class="btn btn-primary">Submit</button>
+      <button id="hint-btn" class="btn btn-outline">Hint</button>
+      <button id="skip-btn" class="btn btn-ghost">Skip</button>
+    </div>
+  </section>
+
+  <!-- RESULTS SCREEN -->
+  <section id="results-screen" class="panel" hidden>
+    <p class="panel-kicker">Final buzzer</p>
+    <h2 class="panel-title" id="results-heading">Nice game!</h2>
+    <div class="final-score" id="final-score">0 / 0</div>
+    <p class="email-status" id="email-status">Sending your results…</p>
+
+    <ul class="results-list" id="results-list"></ul>
+
+    <button id="restart-btn" class="btn btn-outline">Play again</button>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
